@@ -5,3 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Item.destroy_all
+Npc.destroy_all
+User.destroy_all
+Character.destroy_all
+
+Item.create(name: "rusted dagger", description: "a short blade with a slightly rusted edge", item_type: "weapon", effect: 2)
+Item.create(name: "key", description: "a key used to unlock a door", item_type: "tool", effect: 0)
+Item.create(name: "chicken thigh", description: "a piece of chicken that is still warm to the touch.", item_type: "curative", effect: 5)
+
+Npc.create(name: "Bozjan Hiram", hp: 25, strength: 14, speed: 10, mind: 8)
+Npc.create(name: "Shambling Skeleton", hp: 8, strength: 10, speed: 8, mind: 8)
+
+alex = User.create(username: "denimcouch", password: "password")
+
+Character.create(user_id: alex.id, name: "Aleksi", role: "thief", hp: 15, strength: 10, speed: 16, mind: 13)
+
+puts "You wake up in a dusty dungeon"
