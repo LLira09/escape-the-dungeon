@@ -1,6 +1,12 @@
 const renderLogIn = () => {
     changingContainer.innerHTML = ''
 
+    let spacerDiv = document.createElement('div')
+    spacerDiv.setAttribute('style', 'height: 20px;')
+
+    let bigSpacerDiv = document.createElement('div')
+    bigSpacerDiv.setAttribute('style', 'height: 30px;')
+
     let changingContainerCol = createEl('div')
     changingContainerCol.setAttribute('class', 'col text-center')
 
@@ -9,6 +15,7 @@ const renderLogIn = () => {
 
     let userNameDiv = createEl('div')
     let userNameInput = createEl('input')
+    userNameInput.setAttribute('class', 'input mt-2')
     userNameInput.setAttribute('placeholder', 'Username')
     userNameInput.name = 'username'
     userNameDiv.append(userNameInput)
@@ -16,15 +23,27 @@ const renderLogIn = () => {
     let passwordDiv = createEl('div')
     let passwordInput = createEl('input')
     passwordInput.setAttribute('placeholder', 'Password')
+    passwordInput.setAttribute('class', 'input mt-2')
     passwordInput.name = 'password'
     passwordDiv.append(passwordInput)
 
     let logInBtn = createEl('button')
-    logInBtn.setAttribute('class', 'btn-md btn-primary')
+    logInBtn.setAttribute('class', 'btn-md btn-primary mt-2')
     logInBtn.innerText = 'LogIn'
 
+    let signUpDiv = createEl('div')
+    signUpDiv.setAttribute('id', 'sign-up-div')
+
+    let signUpH4 = createEl('h4')
+    signUpH4.innerText = "Don't Have An Account?"
+
+    let signUpBtn = createEl('button')
+    signUpBtn.setAttribute('class', 'btn-md btn-primary')
+    signUpBtn.innerText = "Sign Up!"
+
+    signUpDiv.append(signUpH4, signUpBtn)
     logInForm.append(userNameDiv, passwordDiv, logInBtn)
-    changingContainerCol.append(logInForm)
+    changingContainerCol.append(bigSpacerDiv, logInForm, spacerDiv, signUpDiv)
     changingContainer.append(changingContainerCol)
 
     logInForm.addEventListener('submit', function(e){
@@ -37,6 +56,10 @@ const renderLogIn = () => {
         .then((user) => {
             renderHomePage(user)
         })
+    })
+
+    signUpBtn.addEventListener('click', function(){
+        renderSignUpForm()
     })
 
 }
