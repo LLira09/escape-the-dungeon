@@ -15,4 +15,9 @@ class Api::V1::UsersController < ApplicationController
         render json: user, only: [:username, :password], include: {characters: { only: [:name, :role, :hp, :strength, :speed, :mind]}}
     end
 
+    def create
+        new_user = User.create(username: params[:username], password: params[:password])
+        render json: new_user, only: [:username, :password], include: {characters: { only: [:name, :role, :hp, :strength, :speed, :mind]}}
+    end
+
 end

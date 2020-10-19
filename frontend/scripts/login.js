@@ -54,7 +54,11 @@ const renderLogIn = () => {
         fetch(urlPrefix + `users/login/${e.target.username.value}`)
         .then(res => res.json())
         .then((user) => {
-            renderHomePage(user)
+            if (user.length === 0) {
+                renderSignUpForm()
+            } else{
+                renderHomePage(user)
+            }
         })
     })
 
