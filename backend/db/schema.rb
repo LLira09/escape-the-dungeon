@@ -13,9 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_10_19_182327) do
 
   create_table "characters", force: :cascade do |t|
-    t.integer "user_id"
     t.string "name"
-    t.string "role"
     t.integer "hp"
     t.integer "strength"
     t.integer "speed"
@@ -26,6 +24,7 @@ ActiveRecord::Schema.define(version: 2020_10_19_182327) do
 
   create_table "games", force: :cascade do |t|
     t.integer "user_id"
+    t.integer "character_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

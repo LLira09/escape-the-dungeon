@@ -9,6 +9,7 @@ Item.destroy_all
 Npc.destroy_all
 User.destroy_all
 Character.destroy_all
+Game.destroy_all
 
 Item.create(name: "rusted dagger", description: "a short blade with a slightly rusted edge", item_type: "weapon", effect: 2)
 Item.create(name: "key", description: "a key used to unlock a door", item_type: "tool", effect: 0)
@@ -19,6 +20,10 @@ Npc.create(name: "Shambling Skeleton", hp: 8, strength: 10, speed: 8, mind: 8)
 
 alex = User.create(username: "denimcouch", password: "password")
 
-Character.create(user_id: alex.id, name: "Aleksi", role: "thief", hp: 15, strength: 10, speed: 16, mind: 13)
+war = Character.create(name: "The Warrior", hp: 40, strength: 16, speed: 12, mind: 8)
+thief = Character.create(name: "The Thief", hp: 30, strength: 8, speed: 16, mind: 12)
+wiz = Character.create(name: "The Wizard", hp: 30, strength: 8, speed: 12, mind: 16)
+
+Game.create(user_id: alex.id, character_id: thief.id)
 
 puts "You wake up in a dusty dungeon"
