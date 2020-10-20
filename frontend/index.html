@@ -1,43 +1,67 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<head>
-  <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
 
-  <title>Escape The Dungeon</title>
-  <meta name="description" content="Escape the Dungeon">
+    <title>Escape The Dungeon</title>
+    <meta name="description" content="Escape the Dungeon" />
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/superhero/bootstrap.min.css" integrity="sha384-HnTY+mLT0stQlOwD3wcAzSVAZbrBp141qwfR4WfTqVQKSgmcgzk+oP0ieIyrxiFO" crossorigin="anonymous">  <link rel="stylesheet" href="gameassets/css/main.css"/>
-</head>
+    <!-- <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/superhero/bootstrap.min.css"
+      integrity="sha384-HnTY+mLT0stQlOwD3wcAzSVAZbrBp141qwfR4WfTqVQKSgmcgzk+oP0ieIyrxiFO"
+      crossorigin="anonymous"
+    /> -->
 
-<body>
-  <nav class="navbar navbar-dark bg-dark navbar-expand">
-      <a id='home' class="navbar-brand btn btn-dark">Escape the Dungeon</a>
-      <ul id='nav-ul' class="navbar-nav ml-auto">
-          <li class="nav-item-active">
-              <a id='user-info' class="nav-link btn btn-dark">User Info</a>
-          </li>
+    <link rel="stylesheet" href="gameassets/css/utilities.css" />
+    <link rel="stylesheet" href="gameassets/css/main.css" />
+  </head>
+
+  <body>
+    <header class="hero">
+      <div id="navbar" class="navbar">
+        <h1 class="logo">
+          Escape the Dungeon
+        </h1>
+        <nav>
+          <ul>
+            <li><a href="#">User Info</a></li>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Sign up</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- <nav class="navbar navbar-dark bg-dark navbar-expand">
+      <a id="home" class="navbar-brand btn btn-dark">Escape the Dungeon</a>
+      <ul id="nav-ul" class="navbar-nav ml-auto">
+        <li class="nav-item-active">
+          <a id="user-info" class="nav-link btn btn-dark">User Info</a>
+        </li>
       </ul>
-  </nav>
-  <div class='container'>
-    <div style="height: 30px;"></div>
-    <div class='row'>
-        <div class='col text-center'>
-            <h1 id="game-title">Escape the Dungeon</h1>
+    </nav> -->
+    <div class="container">
+      <div style="height: 30px;"></div>
+      <div class="row">
+        <div class="col text-center">
+          <h1 id="game-title">Escape the Dungeon</h1>
         </div>
-    </div>
-    <div style="height: 10px;"></div>
-    <div class='row' id='changing-container'>
+      </div>
+      <div style="height: 10px;"></div>
+      <div class="row" id="changing-container">
         <!-- javascript changes based on user -->
+      </div>
     </div>
-  </div>
+    <div class="container-lg">
+      <div class="grid"></div>
+    </div>
 
-  <script src="scripts/index.js"></script>
-  <script src="scripts/logIn.js"></script>
-  <script src="scripts/signUp.js"></script>
-  <script src="scripts/userHome.js"></script>
-  <script src="scripts/helpers.js"></script>
-
-
-</body>
+    <script src="scripts/index.js"></script>
+    <script src="scripts/logIn.js"></script>
+    <script src="scripts/signUp.js"></script>
+    <script src="scripts/userHome.js"></script>
+    <script src="scripts/helpers.js"></script>
+    <script src="scripts/app.js"></script>
+  </body>
 </html>
