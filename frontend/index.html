@@ -27,11 +27,29 @@
         <nav>
           <ul>
             <li><a href="#">User Info</a></li>
-            <li><a href="#">Login</a></li>
-            <li><a href="#">Sign up</a></li>
+            <li>
+              <button data-modal-target="#modal" class="mBtn">
+                <a href="#">Login</a>
+              </button>
+            </li>
+            <li>
+              <button data-modal-target="#modal" class="mBtn">
+                <a href="#">SignUp</a>
+              </button>
+            </li>
           </ul>
         </nav>
       </div>
+      <div class="content">
+        <div class="modal" id="modal">
+          <div class="modal-header">
+            <div class="title"></div>
+            <button data-close-button class="close-button">&times;</button>
+          </div>
+          <div class="modal-body"></div>
+        </div>
+      </div>
+      <div id="overlay"></div>
     </header>
     <!-- <nav class="navbar navbar-dark bg-dark navbar-expand">
       <a id="home" class="navbar-brand btn btn-dark">Escape the Dungeon</a>
@@ -57,6 +75,7 @@
       <div class="grid"></div>
     </div>
 
+    <script src="scripts/modal.js"></script>
     <script src="scripts/index.js"></script>
     <script src="scripts/logIn.js"></script>
     <script src="scripts/signUp.js"></script>
