@@ -21,7 +21,7 @@ const renderSignUpForm = () => {
   passwordInput.className = 'fInput';
   passwordInput.setAttribute('placeholder', 'Password');
   passwordInput.type = 'password';
-  passwordInput.name = 'user';
+  passwordInput.name = 'password';
   submit.type = 'submit';
   submit.innerText = 'Create Account';
 

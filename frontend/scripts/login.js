@@ -20,7 +20,7 @@ const renderLogIn = () => {
   passwordInput.className = 'fInput';
   passwordInput.setAttribute('placeholder', 'Password');
   passwordInput.type = 'password';
-  passwordInput.name = 'user';
+  passwordInput.name = 'password';
   submit.type = 'submit';
   submit.innerText = 'Login';
 
@@ -77,7 +77,7 @@ const renderLogIn = () => {
   logInForm.addEventListener('submit', function(e) {
     e.preventDefault();
 
-    console.log(e.target.username.value);
+    // console.log(e.target.username.value);
 
     fetch(urlPrefix + `users/login/${e.target.username.value}`)
       .then(res => res.json())
