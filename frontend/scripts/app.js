@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// Render cards
 function createCharacterCard(char) {
   const main = document.querySelector('.main');
   // Create Elements
