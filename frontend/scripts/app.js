@@ -1,5 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
   console.log('Load Game tile');
+  const container = document.querySelector('.container');
+  const charBtn = document.createElement('button');
+  charBtn.innerText = 'Select Character';
+  container.append(charBtn);
+  charBtn.addEventListener('click', () => {
+    console.log('click');
+  });
   const grid = document.querySelector('.grid');
   const width = 28;
 
