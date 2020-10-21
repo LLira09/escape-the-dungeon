@@ -6,4 +6,11 @@ Rails.application.routes.draw do
       get('/users/login/:username', to: 'users#show_alt')
     end
   end
+
+  namespace :api do
+    namespace :v1 do
+      resources :characters
+      get('/characters', to: 'characters#index')
+    end
+  end
 end
