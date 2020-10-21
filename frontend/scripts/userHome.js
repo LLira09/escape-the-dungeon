@@ -1,5 +1,9 @@
 const renderHomePage = (user) => {
-    changingContainer.innerHTML = ''
+    main.innerHTML = ''
+    
+    console.log(`welcome to the main menu, ${user[0].username}!`)
 
-    console.log(user)
+    let userInfo = user[0]
+
+    
 }
