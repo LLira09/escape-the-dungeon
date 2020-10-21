@@ -4,13 +4,12 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :users
       get('/users/login/:username', to: 'users#show_alt')
+
+      resources :characters
+      get('/characters', to: 'characters#index')
+
+      resources :games, only: [:index, :show, :create, :update]
     end
   end
 
-  namespace :api do
-    namespace :v1 do
-      resources :characters
-      get('/characters', to: 'characters#index')
-    end
-  end
 end
