@@ -1,6 +1,6 @@
 function startGame() {
   console.log('Load Game tile');
-  main.innerHTML = ''
+  main.innerHTML = '';
   // const charBtn = document.createElement('button');
   // charBtn.className = 'btn btn-primary btn-animated';
   // charBtn.innerText = 'Select Character';
@@ -17,8 +17,8 @@ function startGame() {
   //       });
   //     });
   // });
-  const grid = createEl('div')
-  grid.className = 'grid'
+  const grid = createEl('div');
+  grid.className = 'grid';
 
   const width = 20;
 
@@ -348,6 +348,8 @@ function startGame() {
         squares[i].classList.add('ghost-lair');
       } else if (layout[i] === 3) {
         squares[i].classList.add('power-pellet');
+      } else if (layout[i] === 4) {
+        squares[i].classList.add('door');
       }
     }
   }
@@ -391,12 +393,61 @@ function startGame() {
         break;
     }
     squares[charCurrentIndex].classList.add('knight');
+    foundItem();
   }
 
+  // Pick up Items
   document.addEventListener('keyup', moveChar);
+  function foundItem() {
+    if (squares[charCurrentIndex].classList.contains('keyItem')) {
+      squares[charCurrentIndex].classList.add('keyFound');
+      squares[charCurrentIndex].classList.remove('keyItem');
+    }
+  }
+  // create Enemy Template
+  class Enemy {
+    constructor(className, startIndex, speed) {
+      this.className = className;
+      this.startIndex = startIndex;
+      this.speed = speed;
+      this.currentIndex = startIndex;
+      this.timerId = NaN;
+    }
+  }
+  // All Enemies
+  enemies = [new Enemy('enemy1', 223, 300), new Enemy('enemy2', 222, 400)];
 
-  main.append(grid)
-};
+  // draw enemies on the grid
+  enemies.forEach(enemy => {
+    squares[enemy.currentIndex].classList.add(enemy.className);
+    squares[enemy.currentIndex].classList.add('enemy');
+  });
+  // Move all the enemies randomly
+  enemies.forEach(enemy => moveEnemies(enemy));
+
+  // // move Enemies
+  function moveEnemies(enemy) {
+    const directions = [-1, +1, width, -width];
+    let direction = directions[Math.floor(Math.random() * directions.length)];
+
+    enemy.timerId = setInterval(function() {
+      if (
+        !squares[enemy.currentIndex + direction].classList.contains('wall') &&
+        !squares[enemy.currentIndex + direction].classList.contains('enemy') &&
+        !squares[enemy.currentIndex + direction].classList.contains('door')
+      ) {
+        // Go this way
+        // remove all enemey related classes
+        squares[enemy.currentIndex].classList.remove(enemy.className, 'enemy');
+        // Change ther currentIndex to the new square
+        enemy.currentIndex += direction;
+        // redraw the enemy in the new space
+        squares[enemy.currentIndex].classList.add(enemy.className, 'enemy');
+      } else direction = directions[Math.floor(Math.random() * directions.length)];
+    }, enemy.speed);
+  }
+  main.append(grid);
+}
 
 //   const main = document.querySelector('.main');
 //   const charBtn = document.createElement('button');

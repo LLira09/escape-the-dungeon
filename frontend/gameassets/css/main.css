@@ -276,6 +276,15 @@ img {
   background: url('../images/knight_walking.gif') no-repeat center center/cover;
   z-index: 2;
 }
+
+.enemy1 {
+  background-color: red;
+  background: url('../images/archer_walking.gif') no-repeat center center/cover;
+}
+.enemy2 {
+  background-color: yellowgreen;
+  background: url('../images/archer_walking.gif') no-repeat center center/cover;
+}
 /* Flex items */
 .flex-items {
   display: flex;
@@ -294,7 +303,8 @@ img {
   background-color: slateblue;
 }
 .info {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
   font-size: 18px;
   font-style: oblique;
 }
