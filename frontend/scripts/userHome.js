@@ -8,8 +8,11 @@ const renderHomePage = (user) => {
     let menuDiv = createEl("div")
     menuDiv.setAttribute('id', 'main-menu')
  
+    
     const charBtn = document.createElement('button');
+    charBtn.className = 'btn btn-primary btn-animated';
     charBtn.innerText = 'Select Character';
+    main.append(charBtn);
     charBtn.addEventListener('click', () => {
       console.log('click');
       main.innerHTML = '';
@@ -21,11 +24,9 @@ const renderHomePage = (user) => {
             createCharacterCard(char);
           });
         });
-    }); 
-
-
-    menuDiv.append(charBtn)
-    main.append(menuDiv);
+    });
+  };
+  
   // Render cards
   function createCharacterCard(char) {
     const main = document.querySelector('.main');
@@ -69,6 +70,7 @@ const renderHomePage = (user) => {
     flex.append(card);
     container.append(flex);
     main.append(container);
+  
 
     //Starts New Game
     a.addEventListener('click', () => {
@@ -89,5 +91,5 @@ const renderHomePage = (user) => {
       .then(newGame => startGame(newGame))
     });
   }   
-}
+
 

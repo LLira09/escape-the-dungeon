@@ -81,7 +81,7 @@ const renderLogIn = () => {
     fetch(urlPrefix + `users/login/${e.target.username.value}`)
     .then(res => res.json())
     .then(user => renderHomePage(user[0]));
-    });
+  });
 
   //   signUpBtn.addEventListener('click', function() {
   //     renderSignUpForm();

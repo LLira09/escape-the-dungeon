@@ -1,5 +1,5 @@
-document.addEventListener('DOMContentLoaded', () => {
-  console.log('Load Game tile');
+// document.addEventListener('DOMContentLoaded', () => {
+//   console.log('Load Game tile');
 //   const main = document.querySelector('.main');
 //   const charBtn = document.createElement('button');
 //   charBtn.className = 'btn btn-primary btn-animated';
@@ -66,4 +66,4 @@ document.addEventListener('DOMContentLoaded', () => {
 //   a.addEventListener('click', () => {
 //     console.log(char.id);
 //   });
-}
+// }
