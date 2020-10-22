@@ -255,20 +255,14 @@ img {
   height: 36px;
 }
 
-/* .pac-dot {
-  background-color: green;
-  border: 5px solid white;
-  box-sizing: border-box;
-} */
-
 .wall {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-/* .power-pellet {
+.sword {
   background-color: green;
   border-radius: 10px;
-} */
+}
 
 .knight {
   /* background-color: yellow; */
@@ -284,6 +278,14 @@ img {
 .enemy2 {
   background-color: yellowgreen;
   background: url('../images/archer_walking.gif') no-repeat center center/cover;
+}
+.hidden {
+  opacity: 0;
+}
+.keyEnemy {
+  background-color: orange;
+  background: url('../images/dwarf.png') no-repeat center center/cover;
+  /* z-index: 1; */
 }
 /* Flex items */
 .flex-items {
