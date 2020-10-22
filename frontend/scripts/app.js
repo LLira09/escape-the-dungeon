@@ -1,6 +1,6 @@
 function startGame() {
   console.log('Load Game tile');
-  main.innerHTML = ''
+  main.innerHTML = '';
   // const charBtn = document.createElement('button');
   // charBtn.className = 'btn btn-primary btn-animated';
   // charBtn.innerText = 'Select Character';
@@ -17,8 +17,8 @@ function startGame() {
   //       });
   //     });
   // });
-  const grid = createEl('div')
-  grid.className = 'grid'
+  const grid = createEl('div');
+  grid.className = 'grid';
 
   const width = 20;
 
@@ -135,7 +135,7 @@ function startGame() {
     3,
     3,
     3,
-    3,
+    6,
     3,
     0,
     0,
@@ -340,14 +340,14 @@ function startGame() {
       squares.push(square);
 
       //add layout to the board
-      if (layout[i] === 0) {
-        squares[i].classList.add('pac-dot');
+      if (layout[i] === 5) {
+        squares[i].classList.add('keyEnemy');
       } else if (layout[i] === 1) {
         squares[i].classList.add('wall');
-      } else if (layout[i] === 2) {
-        squares[i].classList.add('ghost-lair');
-      } else if (layout[i] === 3) {
-        squares[i].classList.add('power-pellet');
+      } else if (layout[i] === 6) {
+        squares[i].classList.add('sword');
+      } else if (layout[i] === 4) {
+        squares[i].classList.add('door');
       }
     }
   }
@@ -391,11 +391,87 @@ function startGame() {
         break;
     }
     squares[charCurrentIndex].classList.add('knight');
+    // foundItem();
+    swordPickUp();
   }
 
   document.addEventListener('keyup', moveChar);
+  // Pick Up sword
+  function swordPickUp() {
+    if (squares[charCurrentIndex].classList.contains('sword')) {
+      enemies.forEach(enemy => (enemy.killable = true));
+      squares[charCurrentIndex].classList.remove('sword');
+    }
+  }
 
-  main.append(grid)
+  // create Enemy Template
+  class Enemy {
+    constructor(className, startIndex, speed) {
+      this.className = className;
+      this.startIndex = startIndex;
+      this.speed = speed;
+      this.currentIndex = startIndex;
+      this.timerId = NaN;
+      this.killable = false;
+    }
+  }
+  // All Enemies
+  enemies = [new Enemy('enemy1', 223, 400), new Enemy('enemy2', 222, 400)];
+
+  // draw enemies on the grid
+  enemies.forEach(enemy => {
+    squares[enemy.currentIndex].classList.add(enemy.className);
+    squares[enemy.currentIndex].classList.add('enemy');
+  });
+  // Move all the enemies randomly
+  enemies.forEach(enemy => moveEnemies(enemy));
+
+  // // move Enemies
+  function moveEnemies(enemy) {
+    const directions = [-1, +1, width, -width];
+    let direction = directions[Math.floor(Math.random() * directions.length)];
+
+    enemy.timerId = setInterval(function() {
+      if (
+        !squares[enemy.currentIndex + direction].classList.contains('wall') &&
+        !squares[enemy.currentIndex + direction].classList.contains('enemy') &&
+        !squares[enemy.currentIndex + direction].classList.contains('door')
+      ) {
+        // Go this way
+        // remove all enemey related classes
+        squares[enemy.currentIndex].classList.remove(enemy.className, 'enemy');
+        squares[enemy.currentIndex].classList.remove(
+          enemy.className,
+          'enemy-killable'
+        );
+
+        // Change ther currentIndex to the new square
+        enemy.currentIndex += direction;
+        // redraw the enemy in the new space
+        squares[enemy.currentIndex].classList.add(enemy.className, 'enemy');
+      } else direction = directions[Math.floor(Math.random() * directions.length)];
+
+      // The enemy is currently Killable
+      if (enemy.killable) {
+        squares[enemy.currentIndex].classList.add('enemy-killable');
+      }
+      // Check if enemies are killable
+      if (
+        squares[charCurrentIndex].classList.contains('enemy-killable') &&
+        squares[charCurrentIndex].classList.contains('knight')
+      ) {
+        squares[enemy.currentIndex].classList.remove(enemy.className, 'enemy');
+      }
+    }, enemy.speed);
+  }
+
+  // Check for gameover
+  // function gameOver(){
+  //   if(squares[charCurrentIndex].classList.contains('enemy') && !squares[charCurrentIndex].classList.contains('killable')){
+  //     enemies.forEach(enemy =>)
+  //   }
+  // }
+  main.append(grid);
 
   openingScene()
   
