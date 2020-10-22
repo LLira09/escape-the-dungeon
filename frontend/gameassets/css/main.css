@@ -284,3 +284,21 @@ img {
   text-align: center;
   height: 100%;
 }
+
+/* Info Cards*/
+.info-card {
+  border-style: double;
+  border-radius: 5px;
+  border-width: 5px;
+  padding: 25px 100px 75px 100px;
+  background-color: slateblue;
+}
+.info {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 18px;
+  font-style: oblique;
+}
+.close-btn {
+  background-color: teal;
+  padding: 5px 5px 5px 5px;
+}
