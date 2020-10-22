@@ -39,6 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const modalRemove = document.querySelector('.modal-body');
     modalRemove.innerHTML = '';
   }
-  let example = "I ran to the store to get cheetos."
-  createInfoCard(example)
+  // let example = "I ran to the store to get cheetos."
+  // createInfoCard(example)
 });

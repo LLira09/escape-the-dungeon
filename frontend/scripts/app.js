@@ -1,6 +1,6 @@
-document.addEventListener('DOMContentLoaded', () => {
+function startGame() {
   console.log('Load Game tile');
-  const main = document.querySelector('.main');
+  main.innerHTML = ''
   // const charBtn = document.createElement('button');
   // charBtn.className = 'btn btn-primary btn-animated';
   // charBtn.innerText = 'Select Character';
@@ -17,7 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
   //       });
   //     });
   // });
-  const grid = document.querySelector('.grid');
+  const grid = createEl('div')
+  grid.className = 'grid'
 
   const width = 20;
 
@@ -393,7 +394,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   document.addEventListener('keyup', moveChar);
-});
+
+  main.append(grid)
+};
 
 //   const main = document.querySelector('.main');
 //   const charBtn = document.createElement('button');
