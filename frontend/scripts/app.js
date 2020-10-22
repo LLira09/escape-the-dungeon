@@ -1,22 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
   console.log('Load Game tile');
   const main = document.querySelector('.main');
-  const charBtn = document.createElement('button');
-  charBtn.className = 'btn btn-primary btn-animated';
-  charBtn.innerText = 'Select Character';
-  main.append(charBtn);
-  charBtn.addEventListener('click', () => {
-    console.log('click');
-    main.innerHTML = '';
-    fetch('http://localhost:3000/api/v1/characters')
-      .then(res => res.json())
-      .then(json => {
-        json.forEach(char => {
-          console.log(char);
-          createCharacterCard(char);
-        });
-      });
-  });
+  // const charBtn = document.createElement('button');
+  // charBtn.className = 'btn btn-primary btn-animated';
+  // charBtn.innerText = 'Select Character';
+  // main.append(charBtn);
+  // charBtn.addEventListener('click', () => {
+  //   console.log('click');
+  //   main.innerHTML = '';
+  //   fetch('http://localhost:3000/api/v1/characters')
+  //     .then(res => res.json())
+  //     .then(json => {
+  //       json.forEach(char => {
+  //         console.log(char);
+  //         createCharacterCard(char);
+  //       });
+  //     });
+  // });
   const grid = document.querySelector('.grid');
 
   const width = 20;
@@ -460,4 +460,4 @@ document.addEventListener('DOMContentLoaded', () => {
 //   a.addEventListener('click', () => {
 //     console.log(char.id);
 //   });
-}
+
