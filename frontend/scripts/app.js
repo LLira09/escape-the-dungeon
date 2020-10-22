@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log('Load Game tile');
   const main = document.querySelector('.main');
   const charBtn = document.createElement('button');
+  charBtn.className = 'btn btn-primary btn-animated';
   charBtn.innerText = 'Select Character';
   main.append(charBtn);
   charBtn.addEventListener('click', () => {
