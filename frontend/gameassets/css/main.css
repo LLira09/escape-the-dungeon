@@ -8,7 +8,7 @@
 
 body {
   font-family: 'Open Sans', sans-serif;
-  background: #fff;
+  background: rgb(0, 0, 0);
   color: #333;
   line-height: 1.6;
 }
@@ -313,4 +313,22 @@ img {
 .close-btn {
   background-color: teal;
   padding: 5px 5px 5px 5px;
+}
+
+/* Welcome Page*/
+.welcome-page {
+  border-style: double;
+  border-radius: 5px;
+  border-width: 5px;
+  padding: 200px 200px 200px 200px;
+  background-color: slateblue;
+  background-image: url('../images/dungeon1.png');
+  background-blend-mode: screen;
+}
+.welcome-title {
+  justify-content: center;
+  background-color: rgba(0, 128, 128, 0.5);
+}
+.start-button {
+  justify-items: center;
 }

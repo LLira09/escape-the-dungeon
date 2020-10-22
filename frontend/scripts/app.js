@@ -472,7 +472,16 @@ function startGame() {
   //   }
   // }
   main.append(grid);
-}
+
+  openingScene()
+  
+  function openingScene(){
+    let openingText = "You awake inside of a dungeon cell with a wicked headache and cloudy memory. You aren't sure how you got here, but you know you need to get out."
+    let openingInfo = createInfoCard(openingText)
+    grid.append(openingInfo)
+  }
+};
+
 
 //   const main = document.querySelector('.main');
 //   const charBtn = document.createElement('button');
