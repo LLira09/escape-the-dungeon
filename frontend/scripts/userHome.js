@@ -2,6 +2,7 @@ const renderHomePage = (user) => {
     // main.innerHTML = ''
     
     console.log(`welcome to the main menu, ${user.username}!`)
+    console.log(user)
 
     const main = document.querySelector('.main');
 
@@ -21,14 +22,14 @@ const renderHomePage = (user) => {
         .then(json => {
           json.forEach(char => {
             console.log(char);
-            createCharacterCard(char);
+            createCharacterCard(char, user);
           });
         });
     });
   };
   
   // Render cards
-  function createCharacterCard(char) {
+  function createCharacterCard(char, user) {
     const main = document.querySelector('.main');
     // Create Elements
     const container = document.createElement('div');
@@ -74,6 +75,7 @@ const renderHomePage = (user) => {
 
     //Starts New Game
     a.addEventListener('click', () => {
+      
       let gameData = {
         user_id: user.id,
         character_id: char.id
