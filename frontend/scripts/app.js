@@ -393,6 +393,7 @@ function startGame() {
     squares[charCurrentIndex].classList.add('knight');
     // foundItem();
     swordPickUp();
+    gameOver();
   }
 
   document.addEventListener('keyup', moveChar);
@@ -457,31 +458,46 @@ function startGame() {
       }
       // Check if enemies are killable
       if (
-        squares[charCurrentIndex].classList.contains('enemy-killable') &&
-        squares[charCurrentIndex].classList.contains('knight')
+        enemy.killable &&
+        squares[enemy.currentIndex].classList.contains('knight')
       ) {
-        squares[enemy.currentIndex].classList.remove(enemy.className, 'enemy');
+        console.log('Interaction');
+        clearInterval(enemy.timerId);
+
+        // squares[enemy.currentIndex].classList.remove(
+        //   enemy.className,
+        //   'enemy',
+        //   'enemy-killable',
+        //   'enemy1',
+        //   'enemy2'
+        // );
       }
+
+      gameOver(enemy);
     }, enemy.speed);
   }
+  function gameOver(enemy) {
+    if (
+      squares[charCurrentIndex].classList.contains('enemy') &&
+      !squares[charCurrentIndex].classList.contains('enemy-killable')
+    ) {
+      clearInterval(enemy.timerId);
+      document.removeEventListener('keyup', moveChar);
+      alert('Game Over');
+    }
+  }
 
-  // Check for gameover
-  // function gameOver(){
-  //   if(squares[charCurrentIndex].classList.contains('enemy') && !squares[charCurrentIndex].classList.contains('killable')){
-  //     enemies.forEach(enemy =>)
-  //   }
-  // }
   main.append(grid);
 
-  openingScene()
-  
-  function openingScene(){
-    let openingText = "You awake inside of a dungeon cell with a wicked headache and cloudy memory. You aren't sure how you got here, but you know you need to get out."
-    let openingInfo = createInfoCard(openingText)
-    grid.append(openingInfo)
-  }
-};
+  openingScene();
 
+  function openingScene() {
+    let openingText =
+      "You awake inside of a dungeon cell with a wicked headache and cloudy memory. You aren't sure how you got here, but you know you need to get out.";
+    let openingInfo = createInfoCard(openingText);
+    grid.append(openingInfo);
+  }
+}
 
 //   const main = document.querySelector('.main');
 //   const charBtn = document.createElement('button');
