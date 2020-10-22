@@ -6,8 +6,8 @@ class Api::V1::GamesController < ApplicationController
     end
 
     def create
-        new_user = User.create(username: params[:username], password: params[:password])
-        render json: new_user, only: [:username, :password], include: {characters: { only: [:name, :role, :hp, :strength, :speed, :mind]}}
+        new_game = Game.create(user_id: params[:user_id], character_id: params[:character_id])
+        render json: new_game
     end
     
 end

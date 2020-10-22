@@ -78,17 +78,10 @@ const renderLogIn = () => {
     e.preventDefault();
 
     // console.log(e.target.username.value);
-
     fetch(urlPrefix + `users/login/${e.target.username.value}`)
-      .then(res => res.json())
-      .then(user => {
-        if (user.length === 0) {
-          renderSignUpForm();
-        } else {
-          renderHomePage(user);
-        }
-      });
-  });
+    .then(res => res.json())
+    .then(user => renderHomePage(user[0]));
+    });
 
   //   signUpBtn.addEventListener('click', function() {
   //     renderSignUpForm();
