@@ -13,8 +13,10 @@ document.addEventListener('DOMContentLoaded', function() {
       const modal = document.querySelector(button.dataset.modalTarget);
       openModal(modal);
       if (e.target.innerHTML == 'Login') {
+        main.innerHTML = ''
         renderLogIn();
       } else if (e.target.innerHTML == 'SignUp') {
+        main.innerHTML = ''
         renderSignUpForm();
       }
     });
@@ -39,6 +41,41 @@ document.addEventListener('DOMContentLoaded', function() {
     const modalRemove = document.querySelector('.modal-body');
     modalRemove.innerHTML = '';
   }
-  // let example = "I ran to the store to get cheetos."
-  // createInfoCard(example)
+  
+
+  // startGame()
+ createWelcomePage()
+ playSong()
 });
+
+function createWelcomePage(){
+
+  const welcomeDiv = createEl('div')
+  welcomeDiv.className = 'welcome-page'
+  
+  const title = createEl('h1')
+  title.className = 'welcome-title'
+  title.innerText = "Escape the Dungeon"
+
+  const spacerDiv = createEl('div')
+  spacerDiv.setAttribute('style', 'height: 30px;')
+
+  const startBtn = createEl('button')
+  startBtn.innerText = "Get Started!"
+  startBtn.className = 'start-button'
+  startBtn.addEventListener('click', function(){
+    renderLogIn()
+  })
+
+  welcomeDiv.append(title, spacerDiv, startBtn)
+  main.append(welcomeDiv)
+}
+
+function playSong(){
+  const bgm = document.getElementById('bgm')
+  bgm.src = './gameassets/audio/thit.mp3'
+  document.addEventListener('click', function(){
+    bgm.play()
+
+  })
+}
