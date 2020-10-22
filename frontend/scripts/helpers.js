@@ -17,7 +17,10 @@ const createInfoCard = (text) => {
 
     let closeBtn = createEl('button')
     closeBtn.className = 'close-btn'
-
+    closeBtn.innerText = 'Close Window'
+    closeBtn.addEventListener('click', function(e){
+        infoDiv.remove()
+    })
     infoDiv.append(textP, closeBtn)
     main.append(infoDiv)
 }
