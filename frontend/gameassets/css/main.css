@@ -270,9 +270,11 @@ img {
   border-radius: 10px;
 } */
 
-.pac-man {
-  background-color: yellow;
-  border-radius: 10px;
+.knight {
+  /* background-color: yellow; */
+  /* border-radius: 10px; */
+  background: url('../images/knight_walking.gif') no-repeat center center/cover;
+  z-index: 2;
 }
 /* Flex items */
 .flex-items {

@@ -352,46 +352,47 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   createBoard();
 
-  let pacmanCurrentIndex = 250;
-  squares[pacmanCurrentIndex].classList.add('pac-man');
+  let charCurrentIndex = 250;
 
-  function movePacman(e) {
-    squares[pacmanCurrentIndex].classList.remove('pac-man');
+  squares[charCurrentIndex].classList.add('knight');
+
+  function moveChar(e) {
+    squares[charCurrentIndex].classList.remove('knight');
 
     switch (e.keyCode) {
       case 37:
         if (
-          pacmanCurrentIndex % width !== 0 &&
-          !squares[pacmanCurrentIndex - 1].classList.contains('wall')
+          charCurrentIndex % width !== 0 &&
+          !squares[charCurrentIndex - 1].classList.contains('wall')
         )
-          pacmanCurrentIndex -= 1;
+          charCurrentIndex -= 1;
         break;
       case 38:
         if (
-          pacmanCurrentIndex - width >= 0 &&
-          !squares[pacmanCurrentIndex - width].classList.contains('wall')
+          charCurrentIndex - width >= 0 &&
+          !squares[charCurrentIndex - width].classList.contains('wall')
         )
-          pacmanCurrentIndex -= width;
+          charCurrentIndex -= width;
         break;
       case 39:
         if (
-          pacmanCurrentIndex % width < width - 1 &&
-          !squares[pacmanCurrentIndex + 1].classList.contains('wall')
+          charCurrentIndex % width < width - 1 &&
+          !squares[charCurrentIndex + 1].classList.contains('wall')
         )
-          pacmanCurrentIndex += 1;
+          charCurrentIndex += 1;
         break;
       case 40:
         if (
-          pacmanCurrentIndex + width < width * width &&
-          !squares[pacmanCurrentIndex + width].classList.contains('wall')
+          charCurrentIndex + width < width * width &&
+          !squares[charCurrentIndex + width].classList.contains('wall')
         )
-          pacmanCurrentIndex += width;
+          charCurrentIndex += width;
         break;
     }
-    squares[pacmanCurrentIndex].classList.add('pac-man');
+    squares[charCurrentIndex].classList.add('knight');
   }
 
-  document.addEventListener('keyup', movePacman);
+  document.addEventListener('keyup', moveChar);
 });
 
 //   const main = document.querySelector('.main');
@@ -460,4 +461,3 @@ document.addEventListener('DOMContentLoaded', () => {
 //   a.addEventListener('click', () => {
 //     console.log(char.id);
 //   });
-
