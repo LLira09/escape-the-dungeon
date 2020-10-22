@@ -235,28 +235,44 @@ img {
   background: #333;
   color: #fff;
 }
-/* .character-select {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-} */
 
 /* Dungeon */
 .grid {
   display: flex;
   flex-wrap: wrap;
-  width: 560px;
-  height: 560px;
+  align-items: center;
+
+  height: 100vh;
+  /* Subtract 20 from width and height if browser acts weird */
+  width: 725px;
+  height: 545px;
   border: 1px solid black;
+  background: url('../images/dungeon1.png') no-repeat center center/cover;
 }
 
 .grid div {
-  width: 20px;
-  height: 20px;
+  width: 36px;
+  height: 36px;
 }
 
+/* .pac-dot {
+  background-color: green;
+  border: 5px solid white;
+  box-sizing: border-box;
+} */
+
 .wall {
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* .power-pellet {
+  background-color: green;
+  border-radius: 10px;
+} */
+
+.pac-man {
+  background-color: yellow;
+  border-radius: 10px;
 }
 /* Flex items */
 .flex-items {
