@@ -9,11 +9,14 @@ const renderHomePage = (user) => {
 
     let menuDiv = document.createElement("div")
     menuDiv.classList.add('welcome-page')
+
     let menuTitle = document.createElement('h1')
     menuTitle.innerText = `Welcome, ${user.username}!`
     menuTitle.classList.add('main-menu-title')
+
     let pastGamesDiv = document.createElement('div')
     pastGamesDiv.classList.add('past-games')
+    
     let pastGamesTitle = document.createElement('h3')
     pastGamesTitle.classList.add('past-games-title')
     pastGamesTitle.innerText = 'Previous Lives'
