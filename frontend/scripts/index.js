@@ -62,7 +62,7 @@ function createWelcomePage(){
 
   const startBtn = createEl('button')
   startBtn.innerText = "Get Started!"
-  startBtn.className = 'start-button'
+  startBtn.className = "btn btn-primary btn-animated"
   startBtn.addEventListener('click', function(){
     renderLogIn()
   })
@@ -71,11 +71,12 @@ function createWelcomePage(){
   main.append(welcomeDiv)
 }
 
-function playSong(){
-  const bgm = document.getElementById('bgm')
-  bgm.src = './gameassets/audio/thit.mp3'
-  document.addEventListener('click', function(){
-    bgm.play()
+// function playSong(){
+//   const bgm = document.getElementById('bgm')
+//   bgm.src = './gameassets/audio/thit.mp3'
+//   bgm.volume = 0.5
+//   document.addEventListener('click', function(){
+//     bgm.play()
 
-  })
-}
+//   })
+// }

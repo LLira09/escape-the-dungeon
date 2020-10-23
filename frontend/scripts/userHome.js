@@ -2,13 +2,35 @@ const renderHomePage = (user) => {
     // main.innerHTML = ''
     
     console.log(`welcome to the main menu, ${user.username}!`)
-    console.log(user)
+    
+    const characters = user.characters
 
-    const main = document.querySelector('.main');
+    const main = document.querySelector('.main')
 
-    let menuDiv = createEl("div")
-    menuDiv.setAttribute('id', 'main-menu')
- 
+    let menuDiv = document.createElement("div")
+    menuDiv.classList.add('welcome-page')
+
+    let menuTitle = document.createElement('h1')
+    menuTitle.innerText = `Welcome, ${user.username}!`
+    menuTitle.classList.add('main-menu-title')
+
+    let pastGamesDiv = document.createElement('div')
+    pastGamesDiv.classList.add('past-games')
+    
+    let pastGamesTitle = document.createElement('h3')
+    pastGamesTitle.classList.add('past-games-title')
+    pastGamesTitle.innerText = 'Previous Lives'
+
+    let charactersList = document.createElement('ul')
+    charactersList.classList.add('characters-list')
+
+    characters.forEach(character => {
+      let characterLi = document.createElement('li')
+      characterLi.classList.add('character-list-item')
+      characterLi.innerText = character.name
+      charactersList.append(characterLi)
+    })
+    
     
     const charBtn = document.createElement('button');
     charBtn.className = 'btn btn-primary btn-animated';
@@ -26,8 +48,24 @@ const renderHomePage = (user) => {
           });
         });
     });
+
+
+    pastGamesDiv.append(pastGamesTitle, charactersList)
+    menuDiv.append(menuTitle, charBtn, pastGamesDiv)
+    main.append(menuDiv)
+    playSong()
   };
   
+  function playSong(){
+    const bgm = document.getElementById('bgm')
+    bgm.src = './gameassets/audio/thit.mp3'
+    bgm.volume = 0.5
+    document.addEventListener('click', function(){
+      bgm.play()
+  
+    })
+  }
+
   // Render cards
   function createCharacterCard(char, user) {
     const main = document.querySelector('.main');
@@ -64,7 +102,7 @@ const renderHomePage = (user) => {
     speed.innerText = `Speed: ${char.speed}`;
     mind.innerText = `Mind: ${char.mind}`;
     a.setAttribute('href', '#');
-    a.innerText = 'Select!';
+    a.innerText = 'Start Game';
     content2.append(hp, strength, speed, mind, a);
     face2.append(content2);
     card.append(face1, face2);

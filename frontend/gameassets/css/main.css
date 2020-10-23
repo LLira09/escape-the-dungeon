@@ -317,6 +317,9 @@ img {
 
 /* Welcome Page*/
 .welcome-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border-style: double;
   border-radius: 5px;
   border-width: 5px;
@@ -331,4 +334,7 @@ img {
 }
 .start-button {
   justify-items: center;
+  
 }
+
+/* Main Menu*/
