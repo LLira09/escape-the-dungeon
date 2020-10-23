@@ -29,11 +29,15 @@ const renderLogIn = () => {
 
   logInForm.addEventListener('submit', function(e) {
     e.preventDefault();
-
+    const content = document.querySelector('.content');
     // console.log(e.target.username.value);
+    content.innerHTML = '';
+
     fetch(urlPrefix + `users/login/${e.target.username.value}`)
       .then(res => res.json())
-      .then(user => renderHomePage(user[0]));
+      .then(user => {
+        renderHomePage(user[0]);
+      });
   });
 
   //   signUpBtn.addEventListener('click', function() {
