@@ -73,7 +73,10 @@ const renderSignUpForm = () => {
 
     console.log(e.target.username.value);
     const content = document.querySelector('.content');
+    const overlay = document.querySelector('#overlay');
+
     content.innerHTML = '';
+    overlay.classList.remove('active');
     let userData = {
       username: e.target.username.value,
       password: e.target.password.value
