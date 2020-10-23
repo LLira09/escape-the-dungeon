@@ -261,7 +261,7 @@ img {
 
 .sword {
   background-color: green;
-  border-radius: 10px;
+  background: url('../images/big_boy_sword.png') no-repeat center center/cover;
 }
 
 .knight {
@@ -275,12 +275,12 @@ img {
   background-color: red;
   background: url('../images/archer_walking.gif') no-repeat center center/cover;
 }
-/* .enemy2 {
-  background-color: rgba(153, 205, 50, 0);
+.enemy2 {
+  background-color: orangered;
   background: url('../images/archer_walking.gif') no-repeat center center/cover;
-} */
-.hidden {
-  opacity: 0;
+}
+.coffin {
+  background: url('../images/coffin2.png') no-repeat center center/cover;
 }
 .keyEnemy {
   background-color: orange;

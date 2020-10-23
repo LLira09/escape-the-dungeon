@@ -46,7 +46,7 @@ function startGame() {
     0,
     0,
     1,
-    5,
+    0,
     0,
     0,
     0,
@@ -286,7 +286,7 @@ function startGame() {
     0,
     1,
     1,
-    4,
+    7,
     1,
     1,
     0,
@@ -330,6 +330,8 @@ function startGame() {
   // 3 = item
   // 4 = door
   // 5 = enemy
+  // 6 = sword
+  // 7 = exit
   const squares = [];
 
   //   draw the grid and render it
@@ -348,6 +350,8 @@ function startGame() {
         squares[i].classList.add('sword');
       } else if (layout[i] === 4) {
         squares[i].classList.add('door');
+      } else if (layout[i] === 7) {
+        squares[i].classList.add('exit');
       }
     }
   }
@@ -394,6 +398,7 @@ function startGame() {
     // foundItem();
     swordPickUp();
     gameOver();
+    madeExit();
   }
 
   document.addEventListener('keyup', moveChar);
@@ -436,7 +441,8 @@ function startGame() {
       if (
         !squares[enemy.currentIndex + direction].classList.contains('wall') &&
         !squares[enemy.currentIndex + direction].classList.contains('enemy') &&
-        !squares[enemy.currentIndex + direction].classList.contains('door')
+        !squares[enemy.currentIndex + direction].classList.contains('door') &&
+        !squares[enemy.currentIndex + direction].classList.contains('exit')
       ) {
         // Go this way
         // remove all enemey related classes
@@ -463,19 +469,21 @@ function startGame() {
       ) {
         console.log('Interaction');
         clearInterval(enemy.timerId);
-
-        // squares[enemy.currentIndex].classList.remove(
-        //   enemy.className,
-        //   'enemy',
-        //   'enemy-killable',
-        //   'enemy1',
-        //   'enemy2'
-        // );
+        squares[enemy.currentIndex].classList.remove(
+          enemy.className,
+          'enemy',
+          'enemy-killable',
+          'enemy1',
+          'enemy2'
+        );
+        squares[enemy.currentIndex].classList.add('coffin');
       }
 
       gameOver(enemy);
+      madeExit();
     }, enemy.speed);
   }
+  // Check for gameover
   function gameOver(enemy) {
     if (
       squares[charCurrentIndex].classList.contains('enemy') &&
@@ -484,6 +492,15 @@ function startGame() {
       clearInterval(enemy.timerId);
       document.removeEventListener('keyup', moveChar);
       alert('Game Over');
+    }
+  }
+  // Check If charcater made it to exit
+  function madeExit() {
+    if (
+      squares[charCurrentIndex].classList.contains('exit') &&
+      squares[charCurrentIndex].classList.contains('knight')
+    ) {
+      alert('You made the Exit!');
     }
   }
 
