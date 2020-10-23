@@ -72,6 +72,8 @@ const renderSignUpForm = () => {
     e.preventDefault();
 
     console.log(e.target.username.value);
+    const content = document.querySelector('.content');
+    content.innerHTML = '';
     let userData = {
       username: e.target.username.value,
       password: e.target.password.value
