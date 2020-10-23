@@ -407,7 +407,11 @@ function startGame() {
     }
   }
   // All Enemies
-  enemies = [new Enemy('enemy1', 223, 400), new Enemy('enemy2', 222, 400)];
+  enemies = [
+    new Enemy('enemy1', 223, 400),
+    new Enemy('enemy2', 222, 400),
+    new Enemy('enemy3', 190, 400)
+  ];
 
   // draw enemies on the grid
   enemies.forEach(enemy => {

@@ -279,6 +279,10 @@ img {
   background-color: orangered;
   background: url('../images/archer_walking.gif') no-repeat center center/cover;
 }
+.enemy3 {
+  background-color: yellowgreen;
+  background: url('../images/archer_walking.gif') no-repeat center center/cover;
+}
 .coffin {
   background: url('../images/coffin2.png') no-repeat center center/cover;
 }
@@ -334,7 +338,6 @@ img {
 }
 .start-button {
   justify-items: center;
-  
 }
 
 /* Main Menu*/
