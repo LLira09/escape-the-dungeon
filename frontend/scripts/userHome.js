@@ -3,7 +3,7 @@ const renderHomePage = (user) => {
     
     console.log(`welcome to the main menu, ${user.username}!`)
     
-    const characters = user.characters
+    const characters = user.characters.slice(user.characters.length - 3)
 
     const main = document.querySelector('.main')
 
