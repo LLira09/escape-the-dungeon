@@ -30,8 +30,10 @@ const renderLogIn = () => {
   logInForm.addEventListener('submit', function(e) {
     e.preventDefault();
     const content = document.querySelector('.content');
+    const overlay = document.querySelector('#overlay');
     // console.log(e.target.username.value);
     content.innerHTML = '';
+    overlay.classList.remove('active');
 
     fetch(urlPrefix + `users/login/${e.target.username.value}`)
       .then(res => res.json())
