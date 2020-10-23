@@ -74,6 +74,7 @@ function createWelcomePage(){
 function playSong(){
   const bgm = document.getElementById('bgm')
   bgm.src = './gameassets/audio/thit.mp3'
+  bgm.volume = 0.5
   document.addEventListener('click', function(){
     bgm.play()
 
