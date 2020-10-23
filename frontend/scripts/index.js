@@ -12,11 +12,14 @@ document.addEventListener('DOMContentLoaded', function() {
       console.log(e.target.innerHTML);
       const modal = document.querySelector(button.dataset.modalTarget);
       openModal(modal);
-      if (e.target.innerHTML == 'Login') {
-        main.innerHTML = ''
+      if (
+        e.target.innerHTML == 'Login' ||
+        e.target.innerHTML == 'Get Started!'
+      ) {
+        main.innerHTML = '';
         renderLogIn();
       } else if (e.target.innerHTML == 'SignUp') {
-        main.innerHTML = ''
+        main.innerHTML = '';
         renderSignUpForm();
       }
     });
@@ -41,35 +44,60 @@ document.addEventListener('DOMContentLoaded', function() {
     const modalRemove = document.querySelector('.modal-body');
     modalRemove.innerHTML = '';
   }
-  
+  function createWelcomePage(modal) {
+    const welcomeDiv = createEl('div');
+    welcomeDiv.className = 'welcome-page';
+
+    const title = createEl('h1');
+    title.className = 'welcome-title';
+    title.innerText = 'Escape the Dungeon';
+
+    const spacerDiv = createEl('div');
+    spacerDiv.setAttribute('style', 'height: 30px;');
+
+    const startBtn = createEl('button');
+    startBtn.innerText = 'Get Started!';
+    startBtn.setAttribute('data-modal-target', '#modal');
+    startBtn.className = 'btn btn-primary btn-animated';
+    startBtn.addEventListener('click', e => {
+      openModal(modal);
+      if (e.target.innerHTML == 'Get Started!') {
+        main.innerHTML = '';
+        renderLogIn();
+      }
+    });
+
+    welcomeDiv.append(title, spacerDiv, startBtn);
+    main.append(welcomeDiv);
+  }
 
   // startGame()
- createWelcomePage()
- playSong()
+  createWelcomePage(modal);
+  playSong();
 });
 
-function createWelcomePage(){
+// function createWelcomePage(modal) {
+//   const welcomeDiv = createEl('div');
+//   welcomeDiv.className = 'welcome-page';
 
-  const welcomeDiv = createEl('div')
-  welcomeDiv.className = 'welcome-page'
-  
-  const title = createEl('h1')
-  title.className = 'welcome-title'
-  title.innerText = "Escape the Dungeon"
+//   const title = createEl('h1');
+//   title.className = 'welcome-title';
+//   title.innerText = 'Escape the Dungeon';
 
-  const spacerDiv = createEl('div')
-  spacerDiv.setAttribute('style', 'height: 30px;')
+//   const spacerDiv = createEl('div');
+//   spacerDiv.setAttribute('style', 'height: 30px;');
 
-  const startBtn = createEl('button')
-  startBtn.innerText = "Get Started!"
-  startBtn.className = "btn btn-primary btn-animated"
-  startBtn.addEventListener('click', function(){
-    renderLogIn()
-  })
+//   const startBtn = createEl('button');
+//   startBtn.innerText = 'Get Started!';
+//   startBtn.className = 'btn btn-primary btn-animated';
+//   startBtn.setAttribute('data-modal-target', '#modal');
+//   startBtn.addEventListener('click', () => {
+//     openModal(modal);
+//   });
 
-  welcomeDiv.append(title, spacerDiv, startBtn)
-  main.append(welcomeDiv)
-}
+//   welcomeDiv.append(title, spacerDiv, startBtn);
+//   main.append(welcomeDiv);
+// }
 
 // function playSong(){
 //   const bgm = document.getElementById('bgm')
